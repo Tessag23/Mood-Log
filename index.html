@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    
+    .mood-entry {
+        margin: 20px;
+    }
+    
+    .mood-history {
+        border: 1px solid #ccc;
+        padding: 20px;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    
+    li {
+        padding: 5px;
+        border-bottom: 1px solid #ccc;
+    }
+    </style>
+</head>
+<body>
+    <h1>Emotion Tracker</h1>
+    <div class="mood-entry">
+        <label for="mood-select">Select your mood:</label>
+        <select id="mood-select">
+            <option value="happy">Happy</option>
+            <option value="neutral">Neutral</option>
+            <option value="sad">Sad</option>
+        </select>
+        <button onclick="addMood()">Add Mood</button>
+    </div>
+    <div class="mood-history">
+        <h2>Mood History</h2>
+        <ul id="mood-list"></ul>
+    </div>
+    <script>function addMood() {
+        const selectedMood = document.getElementById("mood-select").value;
+        var d=new Date().toLocaleString();
+        if (selectedMood) {
+            const moodList = document.getElementById("mood-list");
+            const listItem = document.createElement("li");
+            listItem.innerText = "Mood:"+selectedMood+" Date:"+d;
+            
+            const Button = document.createElement("button");
+            Button.innerText = "Add note";
+            listItem.appendChild(Button);
+            moodList.appendChild(listItem);
+        }
+    }
+    </script>
+</body>
+</html>
