@@ -1,62 +1,138 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <style>body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-    }
-    
-    .mood-entry {
-        margin: 20px;
-    }
-    
-    .mood-history {
-        border: 1px solid #ccc;
-        padding: 20px;
-        max-width: 400px;
-        margin: 0 auto;
-    }
-    
-    ul {
-        list-style-type: none;
-        padding: 0;
-    }
-    
-    li {
-        padding: 5px;
-        border-bottom: 1px solid #ccc;
-    }
-    </style>
-</head>
-<body>
-    <h1>Emotion Tracker</h1>
-    <div class="mood-entry">
-        <label for="mood-select">Select your mood:</label>
-        <select id="mood-select">
-            <option value="happy">Happy</option>
-            <option value="neutral">Neutral</option>
-            <option value="sad">Sad</option>
-        </select>
-        <button onclick="addMood()">Add Mood</button>
+  <head>
+    <title>Tessa George - Portfolio</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="./script.js"></script>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav>
+      <div id="home">
+        <div class="profile_name">
+            Tessa George
+            <div class="contact_info">
+                <span class="material-symbols-outlined">
+                    mail
+                    </span>@mail.com
+          </div>
+          <div style="clear:both;"></div>
+          <div class="contact_info">
+            <span class="material-symbols-outlined">
+                call
+                </span>+13456764598
+          </div>
+          </div>
+        <div class="topdiv">
+          <a class="topmenu" href="#about-me">About Me</a>
+          <a class="topmenu" href="#skills">Skills</a>
+          <a class="topmenu" href="#projects">Projects</a>
+        </div>
+      </div>    
+    </nav>
+
+    <!-- About Me -->
+    <section id="about-me" class="container">
+      <div>
+        <img src="https://miro.medium.com/max/1400/1*qdAW1TjCN57h1lbuuzvchg.gif" class="profile_image"/>
+      </div>
+
+      <div>
+          <h1>Hi, I am Tessa George!</h1>
+          <p>
+            I am passionate about driving innovation to benefit both my organization and the world. My goal is to 
+            leverage my expertise for mutual growth and sustainable outcomes.
+          </p>
+      </div>
+    </section>
+              
+    <!-- Skills -->
+    <section id="skills">
+      <h2>Skills</h2>
+      <div style="clear:both;"></div>
+
+      <div class="all_skills">
+        <div class="skill">
+          <img src="https://logos-download.com/wp-content/uploads/2016/10/Python_logo_icon.png" alt="Python logo"/>
+          <h5>Python</h5>
+        </div>  
+
+        <div class="skill">
+          <img src="https://toppng.com/uploads/preview/c-programming-icon-c-programming-language-logo-11562945679duaxtn3yq0.png" alt="C Programming logo"/>
+          <h5>C Programming</h5>
+        </div>  
+
+      <div class="skill">
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/30/Java_programming_language_logo.svg/121px-Java_programming_language_logo.svg.png" alt="Java logo"a>
+        <h5>Java</h5>
+      </div>
+
+      <div class="skill">
+        <img src="https://logos-download.com/wp-content/uploads/2017/07/HTML5_badge.png" alt="HTML logo">
+        <h5>HTML</h5>
+      </div>
+    </section>
+          
+    <!-- Projects -->
+    <section class="projects" id="projects">
+      <h2>
+        Projects
+      </h2>
+      <div style="clear:both;"></div>
+
+        <div id="projects-container" class="projects-container">
+          <div class="project-card">
+            <h3>Hostel Management System</h3>
+            <ul>
+              <li>A website that is designed to manage various hostel activities like hostel admission, room booking,
+                 gate pass issuance and mess operations. Uses Python Django framework for backend, HTML and CSS for 
+                 frontend and SQLite as the database.</li>
+            </ul>
+          </div>
+          <hr>
+          <div class="project-card">
+            <h3>Unit Converter</h3>
+            <ul>
+              <li>A website developed using HTML, CSS and JavaScript that converts common units of conversion.</li>
+            </ul>
+          </div>
+          <hr>
+          <div class="project-card">
+            <h3>Event Registration Site</h3>
+            <ul>
+              <li>A user friendly platform that manages the registration of various events. Developed using HTML, CSS
+                 and Python Django.</li>
+            </ul>
+          </div>
     </div>
-    <div class="mood-history">
-        <h2>Mood History</h2>
-        <ul id="mood-list"></ul>
+    </section>
+
+    <!-- Recommendations -->
+    <section id="recommendations">
+        <h2>Recommendations</h2>
+        <div style="clear:both;"></div>
+        <div class="all_recommendations" id="all_recommendations">
+        </div>
+      </section>
+
+    <!-- Recommendation Form -->
+    <section id="contact">
+      <div class="flex_center">
+        <fieldset>
+          <legend class="introduction">Leave a Recommendation</legend>          
+          <input type="text" placeholder="Name (Optional)" id="n"> <br/>
+          <textarea id="new_recommendation" cols="500" rows="10" placeholder="Message"></textarea>
+          <div class="flex_center">
+            <button id="recommend_btn" onclick="addRecommendation()">Submit</button>
+          </div>
+        </fieldset>
+      </div>
+    </section>
+
+    <div class="iconbutton">
+      <a href="#home">
+        <span class="material-symbols-outlined">home</span>
+      </a>
     </div>
-    <script>function addMood() {
-        const selectedMood = document.getElementById("mood-select").value;
-        var d=new Date().toLocaleString();
-        if (selectedMood) {
-            const moodList = document.getElementById("mood-list");
-            const listItem = document.createElement("li");
-            listItem.innerText = "Mood:"+selectedMood+" Date:"+d;
-            
-            const Button = document.createElement("button");
-            Button.innerText = "Add note";
-            listItem.appendChild(Button);
-            moodList.appendChild(listItem);
-        }
-    }
-    </script>
-</body>
-</html>
+  </body></html>    
