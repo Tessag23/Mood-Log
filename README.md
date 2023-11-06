@@ -1,3 +1,3 @@
-# Mood-Log
+# Portfolio
 
-A website that helps you to keep tack of your emotions.
+A website to get to know me better. Developed using HTML, CSS and JS.
